@@ -41,6 +41,9 @@ public class SimServerMain {
         } else if (args[0].equals("auth")) {
             String response = telephonyManager.getIccAuthentication(TelephonyManager.APPTYPE_ISIM, TelephonyManager.AUTHTYPE_EAP_AKA, args[1]);
             System.out.println(response);
+        } else if (args[0].equals("auth2")) {
+            String response = runAuth(args[1], args[2]);
+            System.out.println(response);
         } else if (args[0].equals("serve")) {
             new SimHTTPD(Integer.parseInt(args[1])).start();
             Looper.loop();
